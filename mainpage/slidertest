@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+    <style>html,
+    
+        body {
+          height: 100%;
+          margin: 0px;
+          color: white;
+        }
+        
+        .slider-container {
+          background: transparent
+          ;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+        }
+        
+        .slider {
+          width: 100%;
+          max-width: 600px;
+          height: 400px;
+          margin: 20px;
+          border-radius: 20px;
+          overflow: hidden;
+          position: relative;
+        }
+        
+        .slides {
+          display: flex;
+
+          overflow-x: scroll;
+          position: relative;
+          scroll-behavior: smooth;
+          scroll-snap-type: x mandatory;
+        }
+        
+
+        
+        .slide {
+          display: flex;
+
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+          width: 100%;
+          height: 400px;
+          scroll-snap-align: center;
+          margin-right: 0px;
+          box-sizing: border-box;
+          background: black;
+          
+          transform-origin: center center;
+          transform: scale(1);
+        }
+        
+        .slide__text {
+          font-size: 40px;
+          font-weight: bold;
+          font-family: Source Code Pro, monospace;
+        }
+        
+        .slide a {
+          background: none;
+          border: none;
+        }
+        
+        a.slide__prev,
+        .slider::before {
+          transform: rotate(135deg);
+          -webkit-transform: rotate(135deg);
+          left: 5%;
+        }
+        
+        a.slide__next,
+        .slider::after {
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+          right: 5%;
+        }
+        
+        .slider::before,
+        .slider::after,
+        .slide__prev,
+        .slide__next {
+          position: absolute;
+          top: 48%;
+          width: 10px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 4px 4px 0;
+          padding: 3px;
+          box-sizing: border-box;
+        }
+        
+        .slider::before,
+        .slider::after {
+          content: "";
+          z-index: 1;
+          background: none;
+          pointer-events: none;
+        }
+        
+        .slider__nav {
+          box-sizing: border-box;
+          position: absolute;
+          bottom: 5%;
+          left: 50%;
+          width: 200px;
+          margin-left: -100px;
+          text-align: center;
+        }
+        
+        .slider__navlink {
+          display: inline-block;
+          height: 10px;
+          width: 10px;
+          border-radius: 50%;
+          background-color: white;
+          margin: 0 5px 0 5px;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        .read-article{
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 999;
+          color: #000;
+          background: white;
+          padding: 10px 20px;
+          border-radius: 10px;
+          font-family: arial;
+          text-decoration: none;
+          box-shadow: rgb(50 50 93 / 25%) 0 0 100px -20px, rgb(0 0 0 / 30%) 0 0 60px -15px;
+        }
+        .read-article:hover{
+            background: #d5d5d5;
+            box-shadow: rgb(50 50 93 / 25%) 0 0 100px -20px, rgb(0 0 0 / 30%) 0 0 60px 0px;
+        }
+        iframe[sandbox] .read-article{
+          display: none;
+        }
+        
+        .slide__content {
+            font-size: 16px; /* Set the desired font size for the content */
+font-family: Source Code Pro, monospace;
+            color: #ccc; /* Set the desired color for the content */
+            /* Add any other desired styles for the content here */
+        }
+
+        /* Additional styles for layout */
+        .slide__text {
+            display: block; /* Make the <span> element a block-level element */
+            font-size: 40px;
+            font-weight: bold;
+            font-family: Source Code Pro, monospace;
+        }
+        .slide__type {
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            text-align: left;
+            font-family: Source Code Pro, monospace;
+        }
+
+        .slide__content {
+            margin-top: 5px; /* Add some spacing between the title and content */
+        }
+        .slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control darkness */
+  z-index: -1; /* Set a negative z-index to place the overlay behind other elements */
+}
+
+        </style>
+</head>
+<body>    <div class="slider-container">
+  <div class="slider">
+      <div class="slides" >
+          <div id="slides__1" class="slide" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/UN_HQ_157652121_5b5979da9e2.jpg); ">
+            <div class="slide-overlay"></div>  <div >  
+              <span class = "slide__type" style="background-color: black">
+                &nbsp Projects &nbsp
+            
+                </span>
+            <span class="slide__text"> WikiExpand</span>
+              <p class="slide__content">ReVISION Database is expanding to <br>
+                the Wikimedia Foundation.</p>
+            </div>
+              <a class="slide__prev" href="#slides__4" title="Next"></a>
+              <a class="slide__next" href="#slides__2" title="Next"></a>
+          </div>
+           <div id="slides__2" class="slide" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/UN_HQ_157652121_5b5979da9e2.jpg); ">
+            <div class="slide-overlay"></div>  <div >  
+              <span class = "slide__type" style="background-color: black">
+                &nbsp Updates &nbsp
+            
+                </span>
+            <span class="slide__text"> CSSFUNCTION</span>
+              <p class="slide__content">The ReVISION Database is updated <br>
+                with functionality from various HTML codes.</p>
+            </div>
+              <a class="slide__prev" href="#slides__1" title="Next"></a>
+              <a class="slide__next" href="#slides__3" title="Next"></a>
+          </div>
+          <div id="slides__3" class="slide" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/UN_HQ_157652121_5b5979da9e2.jpg); ">
+            <div class="slide-overlay"></div>  <div >  
+              <span class = "slide__type" style="background-color: black">
+                &nbsp Updates &nbsp
+            
+                </span>
+            <span class="slide__text"> SLIDE 3</span>
+              <p class="slide__content">The ReVISION Database is updated <br>
+                with functionality from various HTML codes.</p>
+            </div>
+              <a class="slide__prev" href="#slides__2" title="Next"></a>
+              <a class="slide__next" href="#slides__4" title="Next"></a>
+          </div>
+          <div id="slides__4" class="slide" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a6/UN_HQ_157652121_5b5979da9e2.jpg); ">
+            <div class="slide-overlay"></div>  <div >  
+              <span class = "slide__type" style="background-color: black">
+                &nbsp Updates &nbsp
+            
+                </span>
+            <span class="slide__text"> Function 4</span>
+              <p class="slide__content">The ReVISION Database is updated <br>
+                with functionality from various HTML codes.</p>
+            </div>
+              <a class="slide__prev" href="#slides__3" title="Next"></a>
+              <a class="slide__next" href="#slides__1" title="Next"></a>
+          </div>
+      </div>
+      <div class="slider__nav">
+          <a class="slider__navlink" href="#slides__1"></a>
+          <a class="slider__navlink" href="#slides__2"></a>
+          <a class="slider__navlink" href="#slides__3"></a>
+          <a class="slider__navlink" href="#slides__4"></a>
+      </div>
+  </div>
+</div>
+<script>
+    // JavaScript code to enable the slide functionality and auto-scroll
+    document.addEventListener("DOMContentLoaded", function () {
+      // Existing code for slide functionality
+
+      // Function to navigate to the next slide
+      function nextSlide() {
+        const currentSlide = document.querySelector(".slide");
+        const nextSlide = currentSlide.nextElementSibling || slides.firstElementChild;
+        goToSlide(nextSlide.id);
+      }
+
+      // Function to start auto-scrolling
+      function startAutoScroll() {
+        isAutoScrolling = true;
+        autoScroll();
+      }
+
+      // Function to stop auto-scrolling
+      function stopAutoScroll() {
+        isAutoScrolling = false;
+      }
+
+      // Function for auto-scrolling
+      function autoScroll() {
+        if (isAutoScrolling) {
+          nextSlide();
+          setTimeout(autoScroll, 5000); // Adjust the interval (in milliseconds) here
+        }
+      }
+
+      // Modify the "Next" button behavior
+      nextButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        stopAutoScroll();
+        nextSlide();
+        startAutoScroll();
+      });
+
+      // Start auto-scrolling when the page loads
+      startAutoScroll();
+    });
+</script>
+</body>
+</html>
